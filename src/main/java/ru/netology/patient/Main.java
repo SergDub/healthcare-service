@@ -41,7 +41,7 @@ public class Main {
         MedicalService medicalService = new MedicalServiceImpl(patientInfoRepository, alertService);
 
         //run service
-        BloodPressure currentPressure = new BloodPressure(60, 120);
+        BloodPressure currentPressure = new BloodPressure(180, 80);
         medicalService.checkBloodPressure(id1, currentPressure);
 
         BigDecimal currentTemperature = new BigDecimal("37.9");

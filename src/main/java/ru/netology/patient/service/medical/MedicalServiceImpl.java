@@ -21,7 +21,8 @@ public class MedicalServiceImpl implements MedicalService {
     public void checkBloodPressure(String patientId, BloodPressure bloodPressure) {
         PatientInfo patientInfo = getPatientInfo(patientId);
         if (!patientInfo.getHealthInfo().getBloodPressure().equals(bloodPressure)) {
-            String message = String.format("Warning, patient with id: %s, need help", patientInfo.getId());
+            String message = String.format("Warning, patient with id: %s, need help", patientInfo.getId());System.out.printf("Warning, patient with id: %s, need help", patientId);System.out.println();
+
             alertService.send(message);
         }
     }
@@ -30,7 +31,7 @@ public class MedicalServiceImpl implements MedicalService {
     public void checkTemperature(String patientId, BigDecimal temperature) {
         PatientInfo patientInfo = getPatientInfo(patientId);
         if (patientInfo.getHealthInfo().getNormalTemperature().subtract(new BigDecimal("1.5")).compareTo(temperature) > 0) {
-            String message = String.format("Warning, patient with id: %s, need help", patientInfo.getId());System.out.printf("Warning, patient with id: %s, need help", patientInfo.getId());
+            String message = String.format("Warning, patient with id: %s, need help", patientInfo.getId());System.out.printf("Warning, patient with id: %s, need help", patientId);System.out.println();
             alertService.send(message);
         }
     }
